@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,12 +9,13 @@ namespace AdressBookProblem
 {
     public class AdressBook
     {
-       
-
         public static void CreateContact()
         {
+
             ContactDetails contactDetails = new ContactDetails();
-            Console.WriteLine("Enter firstname: ");
+
+
+            Console.WriteLine("Enter Firstname: ");
             contactDetails.FirstName = Console.ReadLine();
 
             Console.WriteLine("Enter Lastname: ");
@@ -26,7 +28,7 @@ namespace AdressBookProblem
             contactDetails.Email = Console.ReadLine();
 
             Console.WriteLine("Enter your MobileNumber number:");
-            contactDetails.MobileNumber = Convert.ToInt64( Console.ReadLine());
+            contactDetails.MobileNumber = Convert.ToInt64(Console.ReadLine());
 
             Console.WriteLine("Enter your city: ");
             contactDetails.City = Console.ReadLine();
@@ -37,7 +39,11 @@ namespace AdressBookProblem
             Console.WriteLine(" Enter ypur zipcode: ");
             contactDetails.zipcode = Convert.ToInt32(Console.ReadLine());
 
-           Program.Person.Add(contactDetails);
+            Program.Person.Add(contactDetails);
+
+
+
+
 
         }
     }
