@@ -123,5 +123,11 @@ namespace AdressBookProblem
                 Console.WriteLine();
             }
         }
+        public static void DeleteByFirstName()
+        {
+            Console.WriteLine("Enter First Name To Delete: ");
+            string firstName = Console.ReadLine();
+            Program.Person.Remove(GetByFirstName(firstName));
+        }
     }
 }

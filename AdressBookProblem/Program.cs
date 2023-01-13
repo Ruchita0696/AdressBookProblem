@@ -12,6 +12,9 @@
             AdressBook.DisplayContactDetails();
             AdressBook.EditByFirstName();
             AdressBook.DisplayContactDetails();
+            AdressBook.DeleteByFirstName();
+            AdressBook.DisplayContactDetails();
+
         }
     }
 }
