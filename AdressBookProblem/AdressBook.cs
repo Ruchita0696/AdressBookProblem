@@ -14,6 +14,8 @@ namespace AdressBookProblem
 
             ContactDetails contactDetails = new ContactDetails();
 
+            Console.WriteLine("Enter Uniquename: ");
+            contactDetails.Uniquename = Console.ReadLine();
 
             Console.WriteLine("Enter Firstname: ");
             contactDetails.FirstName = Console.ReadLine();
@@ -39,7 +41,7 @@ namespace AdressBookProblem
             Console.WriteLine(" Enter ypur zipcode: ");
             contactDetails.zipcode = Convert.ToInt32(Console.ReadLine());
 
-            Program.Person.Add(contactDetails);
+            Program.Person.Add(contactDetails.Uniquename, contactDetails);
 
         }
         public static ContactDetails GetByFirstName(string firstName)
@@ -47,9 +49,9 @@ namespace AdressBookProblem
             
             foreach (var item in Program.Person)
             {
-                if (item.FirstName == firstName)
+                if (item.Value.FirstName == firstName)
                 {
-                    return item;
+                    return item.Value;
                 }
             }
             return null;
@@ -62,7 +64,7 @@ namespace AdressBookProblem
             Console.WriteLine("Enter First Name To Edit: ");
             string firstName = Console.ReadLine();
             var contact = GetByFirstName(firstName);
-            Console.WriteLine("Select Which Detail you want to Edit : \n1. First Name \n2. Last Name \n3. Mobile Number \n4. Email ID \n5. Address \n6. City \n7. State \n8. Zip Code");
+            Console.WriteLine("Select Which Detail you want to Edit : \n1. First Name \n2. Last Name \n3. Mobile Number \n4. Email ID \n5. Address \n6. City \n7. State \n8. Zip Code \n9. Uniquname");
             int editDetail = Convert.ToInt32(Console.ReadLine());
             switch (editDetail)
             {
@@ -103,9 +105,14 @@ namespace AdressBookProblem
                     contact.State = state;
                     break;
                 case 8:
-                    Console.Write("Enter First Name to Update : ");
+                    Console.Write("Enter Zipcode to Update : ");
                     int zipcode = Convert.ToInt32(Console.ReadLine());
                     contact.zipcode = zipcode;
+                    break;
+                case 9:
+                    Console.Write("Enter Uniquename to Update : ");
+                    string uniquname = Console.ReadLine();
+                    contact.Uniquename = uniquname;
                     break;
             }
             
@@ -114,22 +121,23 @@ namespace AdressBookProblem
         {
             foreach (var item in Program.Person)
             {
-                Console.WriteLine("First Name is : " + item.FirstName);
-                Console.WriteLine("Last Name is : " + item.LastName);
-                Console.WriteLine("Mobile Number is : " + item.MobileNumber);
-                Console.WriteLine("Email ID is : " + item.Email);
-                Console.WriteLine("Address is : " + item.Address);
-                Console.WriteLine("City is : " + item.City);
-                Console.WriteLine("State is : " + item.State);
-                Console.WriteLine("Zip Code is : " + item.zipcode);
+                Console.WriteLine("Unique Name is : " + item.Value.Uniquename);
+                Console.WriteLine("First Name is : " + item.Value.FirstName);
+                Console.WriteLine("Last Name is : " + item.Value.LastName);
+                Console.WriteLine("Mobile Number is : " + item.Value.MobileNumber);
+                Console.WriteLine("Email ID is : " + item.Value.Email);
+                Console.WriteLine("Address is : " + item.Value.Address);
+                Console.WriteLine("City is : " + item.Value.City);
+                Console.WriteLine("State is : " + item.Value.State);
+                Console.WriteLine("Zip Code is : " + item.Value.zipcode);
                 Console.WriteLine();
             }
         }
-        public static void DeleteByFirstName()
+        public static void DeleteByUniqueName()
         {
-            Console.WriteLine("Enter First Name To Delete: ");
-            string firstName = Console.ReadLine();
-            Program.Person.Remove(GetByFirstName(firstName));
+            Console.WriteLine("Enter Unique Name To Delete: ");
+            string UniqueName = Console.ReadLine();
+            Program.Person.Remove(UniqueName);
         }
     }
 }

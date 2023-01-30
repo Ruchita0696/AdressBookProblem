@@ -2,7 +2,7 @@
 {
     public class Program
     {
-        public static List<ContactDetails> Person = new List<ContactDetails>();
+        public static Dictionary<string, ContactDetails> Person = new Dictionary<string, ContactDetails>();
 
         static void Main(string[] args)
         {
@@ -19,10 +19,9 @@
             AdressBook.DisplayContactDetails();
             AdressBook.EditByFirstName();
             AdressBook.DisplayContactDetails();
-            AdressBook.DeleteByFirstName();
+            AdressBook.DeleteByUniqueName();
             AdressBook.DisplayContactDetails();
-
-            AdressBook.DisplayContactDetails();
+         
 
         }
     }

@@ -16,6 +16,7 @@ namespace AdressBookProblem
         public string? City { get; set; }
         public string? State { get; set; }
         public int? zipcode { get; set; }
+        public string? Uniquename { get; set; }
 
     }
 }
