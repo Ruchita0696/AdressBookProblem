@@ -166,7 +166,17 @@ namespace AdressBookProblem
                     }
                     foreach (var contact in contacts)
                     {
-                        Console.Write("Name is : " + contact.Value.FirstName + " " + contact.Value.LastName + "\n");
+                        Console.WriteLine("Unique Name is : " + contact.Value.Uniquename);
+                        Console.WriteLine("First Name is : " + contact.Value.FirstName);
+                        Console.WriteLine("Last Name is : " + contact.Value.LastName);
+                        Console.WriteLine("Mobile Number is : " + contact.Value.MobileNumber);
+                        Console.WriteLine("Email ID is : " + contact.Value.Email);
+                        Console.WriteLine("Address is : " + contact.Value.Address);
+                        Console.WriteLine("City is : " + contact.Value.City);
+                        Console.WriteLine("State is : " + contact.Value.State);
+                        Console.WriteLine("Zip Code is : " + contact.Value.zipcode);
+                        Console.WriteLine();
+
                     }
                     Console.WriteLine();
                     break;
@@ -183,7 +193,16 @@ namespace AdressBookProblem
                     }
                     foreach (var contact in contactState)
                     {
-                        Console.Write("Name is : " + contact.Value.FirstName + " " + contact.Value.LastName + "\n");
+                        Console.WriteLine("Unique Name is : " + contact.Value.Uniquename);
+                        Console.WriteLine("First Name is : " + contact.Value.FirstName);
+                        Console.WriteLine("Last Name is : " + contact.Value.LastName);
+                        Console.WriteLine("Mobile Number is : " + contact.Value.MobileNumber);
+                        Console.WriteLine("Email ID is : " + contact.Value.Email);
+                        Console.WriteLine("Address is : " + contact.Value.Address);
+                        Console.WriteLine("City is : " + contact.Value.City);
+                        Console.WriteLine("State is : " + contact.Value.State);
+                        Console.WriteLine("Zip Code is : " + contact.Value.zipcode);
+                        Console.WriteLine();
                     }
                     Console.WriteLine();
                     break;
