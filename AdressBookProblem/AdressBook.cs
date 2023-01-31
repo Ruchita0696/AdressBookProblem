@@ -41,7 +41,7 @@ namespace AdressBookProblem
             Console.WriteLine(" Enter ypur zipcode: ");
             contactDetails.zipcode = Convert.ToInt32(Console.ReadLine());
 
-            
+
             var contact = Program.Person.SingleOrDefault(detail => detail.Value.Equals(contactDetails));
             if (contact.Value == null)
             {
@@ -55,7 +55,7 @@ namespace AdressBookProblem
         }
         public static ContactDetails GetByFirstName(string firstName)
         {
-            
+
             foreach (var item in Program.Person)
             {
                 if (item.Value.FirstName == firstName)
@@ -106,7 +106,7 @@ namespace AdressBookProblem
                     string city = Console.ReadLine();
                     contact.City = city;
                     break;
-                
+
                 case 7:
                     Console.Write("Enter State to Update : ");
                     string state = Console.ReadLine();
@@ -123,7 +123,7 @@ namespace AdressBookProblem
                     contact.Uniquename = uniquname;
                     break;
             }
-            
+
         }
         public static void DisplayContactDetails()
         {
@@ -147,5 +147,48 @@ namespace AdressBookProblem
             string UniqueName = Console.ReadLine();
             Program.Person.Remove(UniqueName);
         }
+        public static void SearchContactUsingCityorState()
+        {
+            Console.WriteLine("\nEnter 1 to Search Contact Using City \n" +
+                "Enter 2 to Search Contact Using State");
+            int intput = Convert.ToInt32(Console.ReadLine());
+            switch (intput)
+            {
+                case 1:
+                    Console.Write("Enter City to Search Contact : ");
+                    string city = Console.ReadLine();
+                    var contacts = Program.Person.Where(detail => detail.Value.City == city);
+                    Console.WriteLine("\n***** Contacts in Address Book *****");
+                    if (!contacts.Any())
+                    {
+                        Console.WriteLine($"Contacts Not Available in Address Book of City {city}\n");
+                        return;
+                    }
+                    foreach (var contact in contacts)
+                    {
+                        Console.Write("Name is : " + contact.Value.FirstName + " " + contact.Value.LastName + "\n");
+                    }
+                    Console.WriteLine();
+                    break;
+
+                case 2:
+                    Console.Write("Enter State to Search Contact : ");
+                    string state = Console.ReadLine();
+                    var contactState = Program.Person.Where(detail => detail.Value.State == state);
+                    Console.WriteLine("\n*** Contacts in Address Book ***");
+                    if (!contactState.Any())
+                    {
+                        Console.WriteLine($"Contacts Not Available in Address Book of State {state}\n");
+                        return;
+                    }
+                    foreach (var contact in contactState)
+                    {
+                        Console.Write("Name is : " + contact.Value.FirstName + " " + contact.Value.LastName + "\n");
+                    }
+                    Console.WriteLine();
+                    break;
+            }
+        }
     }
+
 }
