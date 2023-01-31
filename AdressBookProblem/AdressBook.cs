@@ -155,6 +155,7 @@ namespace AdressBookProblem
             switch (intput)
             {
                 case 1:
+                    int cityCount = 0;
                     Console.Write("Enter City to Search Contact : ");
                     string city = Console.ReadLine();
                     var contacts = Program.Person.Where(detail => detail.Value.City == city);
@@ -176,12 +177,15 @@ namespace AdressBookProblem
                         Console.WriteLine("State is : " + contact.Value.State);
                         Console.WriteLine("Zip Code is : " + contact.Value.zipcode);
                         Console.WriteLine();
+                        cityCount++;
 
                     }
+                    Console.WriteLine($"There are {cityCount} Contact of {city} City");
                     Console.WriteLine();
                     break;
 
                 case 2:
+                    int stateCount = 0;
                     Console.Write("Enter State to Search Contact : ");
                     string state = Console.ReadLine();
                     var contactState = Program.Person.Where(detail => detail.Value.State == state);
@@ -203,7 +207,9 @@ namespace AdressBookProblem
                         Console.WriteLine("State is : " + contact.Value.State);
                         Console.WriteLine("Zip Code is : " + contact.Value.zipcode);
                         Console.WriteLine();
+                        stateCount++;
                     }
+                    Console.WriteLine($"There are {stateCount} Contact of {state} State");
                     Console.WriteLine();
                     break;
             }
