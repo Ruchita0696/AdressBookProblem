@@ -18,5 +18,15 @@ namespace AdressBookProblem
         public int? zipcode { get; set; }
         public string? Uniquename { get; set; }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            ContactDetails details = obj as ContactDetails;
+
+            return details.FirstName == FirstName || details.Uniquename == Uniquename || details.MobileNumber == MobileNumber || details.Email == Email;
+        }
     }
 }

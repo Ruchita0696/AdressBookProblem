@@ -41,7 +41,16 @@ namespace AdressBookProblem
             Console.WriteLine(" Enter ypur zipcode: ");
             contactDetails.zipcode = Convert.ToInt32(Console.ReadLine());
 
-            Program.Person.Add(contactDetails.Uniquename, contactDetails);
+            
+            var contact = Program.Person.SingleOrDefault(detail => detail.Value.Equals(contactDetails));
+            if (contact.Value == null)
+            {
+                Program.Person.Add(contactDetails.Uniquename, contactDetails);
+            }
+            else
+            {
+                Console.WriteLine($"\nThe Contact Name {contactDetails.FirstName} is Already Exists");
+            }
 
         }
         public static ContactDetails GetByFirstName(string firstName)
@@ -57,7 +66,6 @@ namespace AdressBookProblem
             return null;
 
         }
-
 
         public static void EditByFirstName()
         {
