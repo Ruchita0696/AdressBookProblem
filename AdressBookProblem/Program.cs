@@ -23,7 +23,7 @@
             AdressBook.DisplayContactDetails();
             AdressBook.SearchContactUsingCityorState();
             AdressBook.SortByFirstName();
-            
+            AdressBook.SortByCityOrStateOrZip();
 
         }
     }

@@ -213,7 +213,7 @@ namespace AdressBookProblem
                     Console.WriteLine();
                     break;
             }
-            
+
         }
         public static void SortByFirstName()
         {
@@ -233,7 +233,7 @@ namespace AdressBookProblem
                     Console.WriteLine("State is : " + personContact.Value.State);
                     Console.WriteLine("Zip Code is : " + personContact.Value.zipcode);
                     Console.WriteLine();
-                   
+
                     Console.WriteLine("------------------\n");
                 }
             }
@@ -242,7 +242,83 @@ namespace AdressBookProblem
                 Console.WriteLine("Address Book is Empty");
             }
         }
+        public static void SortByCityOrStateOrZip()
+        {
+            if (Program.Person.Count > 0)
+            {
+                Console.WriteLine("1-Sort By City /n2-Sort By state /n3-Sort By zip");
+                int input = Convert.ToInt32(Console.ReadLine());
+                switch (input)
+                {
+                    case 1:
 
+                        var Contact = Program.Person.OrderBy(x => x.Value.City);
+
+                        foreach (var personContact in Contact)
+                        {
+                            Console.WriteLine("Unique Name is : " + personContact.Value.Uniquename);
+                            Console.WriteLine("First Name is : " + personContact.Value.FirstName);
+                            Console.WriteLine("Last Name is : " + personContact.Value.LastName);
+                            Console.WriteLine("Mobile Number is : " + personContact.Value.MobileNumber);
+                            Console.WriteLine("Email ID is : " + personContact.Value.Email);
+                            Console.WriteLine("Address is : " + personContact.Value.Address);
+                            Console.WriteLine("City is : " + personContact.Value.City);
+                            Console.WriteLine("State is : " + personContact.Value.State);
+                            Console.WriteLine("Zip Code is : " + personContact.Value.zipcode);
+                            Console.WriteLine();
+
+                            Console.WriteLine("------------------\n");
+                        }
+                        break;
+                    case 2:
+                        var Contact1 = Program.Person.OrderBy(x => x.Value.State);
+
+                        foreach (var personContact in Contact1)
+                        {
+                            Console.WriteLine("Unique Name is : " + personContact.Value.Uniquename);
+                            Console.WriteLine("First Name is : " + personContact.Value.FirstName);
+                            Console.WriteLine("Last Name is : " + personContact.Value.LastName);
+                            Console.WriteLine("Mobile Number is : " + personContact.Value.MobileNumber);
+                            Console.WriteLine("Email ID is : " + personContact.Value.Email);
+                            Console.WriteLine("Address is : " + personContact.Value.Address);
+                            Console.WriteLine("City is : " + personContact.Value.City);
+                            Console.WriteLine("State is : " + personContact.Value.State);
+                            Console.WriteLine("Zip Code is : " + personContact.Value.zipcode);
+                            Console.WriteLine();
+
+                            Console.WriteLine("------------------\n");
+                        }
+                        break;
+                    case 3:
+                        var Contact2 = Program.Person.OrderBy(x => x.Value.zipcode);
+
+                        foreach (var personContact in Contact2)
+                        {
+                            Console.WriteLine("Unique Name is : " + personContact.Value.Uniquename);
+                            Console.WriteLine("First Name is : " + personContact.Value.FirstName);
+                            Console.WriteLine("Last Name is : " + personContact.Value.LastName);
+                            Console.WriteLine("Mobile Number is : " + personContact.Value.MobileNumber);
+                            Console.WriteLine("Email ID is : " + personContact.Value.Email);
+                            Console.WriteLine("Address is : " + personContact.Value.Address);
+                            Console.WriteLine("City is : " + personContact.Value.City);
+                            Console.WriteLine("State is : " + personContact.Value.State);
+                            Console.WriteLine("Zip Code is : " + personContact.Value.zipcode);
+                            Console.WriteLine();
+
+                            Console.WriteLine("------------------\n");
+                        }
+                        break;
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("Address Book is Empty");
+            }
+
+
+
+        }
 
     }
 
