@@ -22,6 +22,7 @@
             AdressBook.DeleteByUniqueName();
             AdressBook.DisplayContactDetails();
             AdressBook.SearchContactUsingCityorState();
+            AdressBook.SortByFirstName();
             
 
         }

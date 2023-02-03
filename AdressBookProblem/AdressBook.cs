@@ -213,7 +213,37 @@ namespace AdressBookProblem
                     Console.WriteLine();
                     break;
             }
+            
         }
+        public static void SortByFirstName()
+        {
+            if (Program.Person.Count > 0)
+            {
+                var Contact = Program.Person.OrderBy(x => x.Value.FirstName);
+
+                foreach (var personContact in Contact)
+                {
+                    Console.WriteLine("Unique Name is : " + personContact.Value.Uniquename);
+                    Console.WriteLine("First Name is : " + personContact.Value.FirstName);
+                    Console.WriteLine("Last Name is : " + personContact.Value.LastName);
+                    Console.WriteLine("Mobile Number is : " + personContact.Value.MobileNumber);
+                    Console.WriteLine("Email ID is : " + personContact.Value.Email);
+                    Console.WriteLine("Address is : " + personContact.Value.Address);
+                    Console.WriteLine("City is : " + personContact.Value.City);
+                    Console.WriteLine("State is : " + personContact.Value.State);
+                    Console.WriteLine("Zip Code is : " + personContact.Value.zipcode);
+                    Console.WriteLine();
+                   
+                    Console.WriteLine("------------------\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Address Book is Empty");
+            }
+        }
+
+
     }
 
 }
