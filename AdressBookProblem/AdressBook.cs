@@ -9,6 +9,7 @@ namespace AdressBookProblem
 {
     public class AdressBook
     {
+           public static string path = @"D:\6.AddressBook\AdressBookProblem\AdressBookProblem\Details.txt";
         public static void CreateContact()
         {
 
@@ -45,6 +46,7 @@ namespace AdressBookProblem
             var contact = Program.Person.SingleOrDefault(detail => detail.Value.Equals(contactDetails));
             if (contact.Value == null)
             {
+                WriteRecordsInFile(path, contactDetails);
                 Program.Person.Add(contactDetails.Uniquename, contactDetails);
             }
             else
@@ -316,10 +318,42 @@ namespace AdressBookProblem
                 Console.WriteLine("Address Book is Empty");
             }
 
+        }
+        public static void WriteRecordsInFile(string path, ContactDetails person)
+        {
 
-
+            if (File.Exists(path))
+            {
+                StreamWriter sw = File.AppendText(path);
+                sw.WriteLine("\nFirst Name : " + person.FirstName);
+                sw.WriteLine("Last Name : " + person.LastName);
+                sw.WriteLine("Address : " + person.Address);
+                sw.WriteLine("City : " + person.City);
+                sw.WriteLine("State : " + person.State);
+                sw.WriteLine("Email : " + person.Email);
+                sw.WriteLine("Zip code : " + person.zipcode);
+                sw.WriteLine();
+                sw.Close();
+                Console.WriteLine("\nData added successfully in file");
+            }
+            else
+            {
+                Console.WriteLine("\nFile Not Found");
+            }
+        }
+        public static void ReadRecordsFromFile(string path)
+        {
+            if (File.Exists(path))
+            {
+                Console.WriteLine(File.ReadAllText(path));
+            }
+            else
+            {
+                Console.WriteLine("\nFile Not Found");
+            }
         }
 
     }
-
 }
+
+

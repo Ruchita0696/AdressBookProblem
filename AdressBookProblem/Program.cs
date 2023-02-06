@@ -1,4 +1,8 @@
-﻿namespace AdressBookProblem
+﻿using System.IO;
+using System;
+using System.Reflection;
+
+namespace AdressBookProblem
 {
     public class Program
     {
@@ -7,6 +11,7 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book \n");
+            AdressBook.ReadRecordsFromFile(AdressBook.path);
             Console.Write("Enter 'y' to Enter Contact Details : ");
             var input = Console.ReadLine();
 
@@ -16,7 +21,7 @@
                 Console.Write("Enter 'y' to Enter Contact Details or otherwise Enter any key : ");
                 input = Console.ReadLine();
             }
-            AdressBook.DisplayContactDetails();
+            AdressBook.ReadRecordsFromFile(AdressBook.path);
             AdressBook.EditByFirstName();
             AdressBook.DisplayContactDetails();
             AdressBook.DeleteByUniqueName();
@@ -24,6 +29,7 @@
             AdressBook.SearchContactUsingCityorState();
             AdressBook.SortByFirstName();
             AdressBook.SortByCityOrStateOrZip();
+
 
         }
     }
